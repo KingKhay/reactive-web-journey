@@ -6,6 +6,7 @@ import reactor.core.publisher.Flux;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class ProductService {
@@ -14,7 +15,7 @@ public class ProductService {
         Product product1 = new Product("P1");
         Product product2 = new Product("P2");
 
-        return Flux.fromStream(List.of(product1, product2).stream())
+        return Flux.fromStream(Stream.of(product1, product2))
                 .delayElements(Duration.ofSeconds(3));
     }
 }
